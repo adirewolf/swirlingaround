@@ -1,24 +1,40 @@
 ##RStudio Crashed This is my notes
+#Main Idea grouping data - breakup dataset into groups of rows based on values one or more vars
 library(dplyr)
+#Group data by package name
 by_package <- group_by(cran, package)
 by_package
+#Grouped data will take place per package basis, meaning download size for each package
 summarize(by_package, mean(size))
+#returns the mean size for EACH package
 pack_sum <- summarize( by_package,
+			#Total number of rows
 			count = n(),
+			#the unique dl each package
 			unique = n_distinct(ip_id)
+			#the number of countries each packaged downloaded
 			countries = n_distinct(country)
+			#download size(in bytes)each package
 			avg_bytes = mean(size)
 			)
-
+			#Most popular on day collected isolated 
+			#top 1% based on the number downloads measured by 'count' column
+			#The 99% quantile
 quantile(pack_sum$count, probs = 0.99)
+#Isolate output with filters
 top_count <- filter(pack_sum, count > 679)
+#View more than 10
 View(top_count)
+#Package with highest number of download at top(descending))
 arrange(top_counts, desc(count))
+#Unique all 10 in 1 day
 quantile(pack_sum$unique, probs = 0.99)
+#Isolate output of filter
 filter(pack_sum, unique > 465)
-
+#distict countries that packages where downloaded
 top_unique_sorted <- arrange(top_unique, desc(unique))
-##rest are scripts in chaining
+
+##The script doing above but with chaining
 Example:
  cran %>%
  select(ip_id, country, package, size) %>%
