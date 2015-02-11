@@ -1,0 +1,28 @@
+##RStudio Crashed This is my notes
+library(dplyr)
+by_package <- group_by(cran, package)
+by_package
+summarize(by_package, mean(size))
+pack_sum <- summarize( by_package,
+			count = n(),
+			unique = n_distinct(ip_id)
+			countries = n_distinct(country)
+			avg_bytes = mean(size)
+			)
+
+quantile(pack_sum$count, probs = 0.99)
+top_count <- filter(pack_sum, count > 679)
+View(top_count)
+arrange(top_counts, desc(count))
+quantile(pack_sum$unique, probs = 0.99)
+filter(pack_sum, unique > 465)
+
+top_unique_sorted <- arrange(top_unique, desc(unique))
+##rest are scripts in chaining
+Example:
+ cran %>%
+ select(ip_id, country, package, size) %>%
+ mutate(size_mb = size / 2^20) %>% 
+ filter(size_mb <= 0.5) %>%
+ arrange(desc(size_mb)) %>%
+ print
