@@ -1,0 +1,38 @@
+library(swirl)
+swirl()
+library(tidyr)
+str(students)
+students
+?gather
+gather(students, sex, count, -grade)
+students2
+res <- gather(students, sex_class, count)
+res <- gather(students2, sex_class, count)
+res <- gather(students2, sex_class, count, -grade)
+res
+?seperate
+?separate
+separate(res, sex_class, c("sex","class"))
+extract_numeric("class5")
+passed
+failed
+mutate(passwd, status = "passwd")
+?mutate
+mutate(passed, status = "passwd")
+passed <- passed %>% mutate(status = "passed")
+failed <- failed %>% mutate(status="failed")
+?bind_rows
+bind_rows(passwd, filed)
+bind_rows(passed, filed)
+bind_rows(passed, failed)
+sat
+?gather
+submit()
+?contains
+?contains
+?select
+submit()
+submit()
+submit()
+?group_by
+submit()
