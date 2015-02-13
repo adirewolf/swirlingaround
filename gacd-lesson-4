@@ -1,0 +1,71 @@
+swirl()
+Sys.getlocale("LC_TIME")
+library(lubridate)
+help(package = lubridate)
+today()
+this_day <- today()
+this_day
+year()
+year(this_day)
+wday(this_day)
+wday(this_day, label=TRUE)
+now()
+this_moment <- now()
+this_moment
+minute(this_moment)
+ymd("1989-05-17")
+my_date <- ymd("1989-05-17")
+my_date
+class(my_Date)
+class(my_date)
+ymd(my_Date)
+ymd(my_date)
+ymd("1989 May 17")
+mdy("March 12, 1975")
+dmy(25081985)
+ymd("192012")
+ymd("19--2012")
+ymd("1920/1/2")
+dt1
+ymd_hms(dt1)
+hms(dt1)
+hms("03:22:14")
+dt2
+ymd(dt2)
+update(this_moment, hours = 8, minutes = 34, seconds =55)
+this_moment
+?update
+update(this_moment, today())
+update(this_moment, hours = 10, mnutes = 16, seconds = 0)
+update(this_moment, hours = 10, minutes = 16, seconds = 0)
+update(this_moment, hours = 10, minutes = 16, seconds = 0)
+this_moment <- update(this_moment, hours = 10, minutes = 16, seconds = 0)
+this_moment
+now(America/New_York)
+now("America/New_York")
+nyc <- now("America/New_York")
+nyc
+depart <- nyc + days(2)
+depart
+depart <- update(depart, hours = 17, minutes = 34)
+depart
+nyc + hours(15)
+arrive <- depart + hours(15) + minutes(50)
+with_tz()
+?with_tz
+with_tz(Asia/Hong_Kong)
+with_tz(arrive, tzone = "Asia/Hong_Kong")
+with_tz(arrive,"Asia/Hong_Kong")
+arrive <- with_tz(arrive, tzone = "Asia/Hong_Kong")
+arrive
+fdsa
+last_time <- mdy(arrival, tz = "Singapore")
+mdy("June 17, 2008")
+mdy("June 17, 2008", tz = "Singapore")
+last_time <- mdy("June 17, 2008", tz = "Singapore")
+last_time
+?new_interval
+how_long <- new_interval(last_time, arrive)
+how_long
+as.period(how_long)
+stopwatch()
